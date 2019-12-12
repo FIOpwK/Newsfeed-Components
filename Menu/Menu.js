@@ -35,23 +35,22 @@ let menuItems = [
 */
 
 function createMenu(array) {
-  const mymenu = document.createElement('div');
-  const unorderList = document.createElement('ul');
-  const listItems = document.createElement('li');
+
+  const menu = document.createElement('div')
+  const ul = document.createElement('ul')
+  const li = document.createElement('li')
   
+  li.textContent = array;
+
+  ul.appendChild(li)
+  menu.appendChild(ul)
+
   
-  mymenu.classList.add('.menu-button');
-  mymenu.addEventListener('click', (e) => {
-    console.log('clicked')
-    
-  })
-  
-  return mymenu;
+  return menu;
 }
+const parent = document.querySelector('.menu-button')
 
-const header = document.querySelector('.header')
-const menuOpen = createMenu(menuItems)
-const menuClose = createMenu(menuItems)
-
-
-header.appendChild(menuOpen);
+for (let i=0; i<menuItems.length; i++) {
+  let menu = createMenu(menuItems[i]);
+  parent.appendChild(menu);
+}
